@@ -20,31 +20,31 @@
   }
   .leaderboard {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    padding: 25px;
-    margin-bottom: 40px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
   
   .leaderboard h2 {
     color: white;
     text-align: center;
-    margin: 0 0 20px 0;
-    font-size: 24px;
+    margin: 0 0 15px 0;
+    font-size: 20px;
   }
   
   .leaderboard-list {
     display: grid;
-    gap: 10px;
+    gap: 8px;
   }
   
   .leaderboard-item {
     background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    padding: 15px 20px;
+    border-radius: 8px;
+    padding: 10px 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     transition: transform 0.2s;
   }
   
@@ -53,21 +53,21 @@
   }
   
   .leaderboard-item .rank {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     color: #667eea;
-    min-width: 40px;
+    min-width: 35px;
   }
   
   .leaderboard-item .team-name-leader {
     flex: 1;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #2c3e50;
   }
   
   .leaderboard-item .score {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     color: #764ba2;
   }
