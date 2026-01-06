@@ -129,24 +129,30 @@ function FantasyTracker() {
     <div className="tracker-container">
       <h1>Fantasy Football Playoffs 2026</h1>
       
-      {/* Leaderboard */}
-      <div className="leaderboard">
-        <h2>🏆 Standings</h2>
-        <div className="leaderboard-list">
-          {teams.map((team, index) => (
-            <div key={index} className="leaderboard-item">
-              <span className="rank">#{index + 1}</span>
-              <span className="team-name-leader">{team.name}</span>
-              <span className="score">{team.grandTotal} pts</span>
-            </div>
-          ))}
-        </div>
+{/* Leaderboard */}
+<div className="leaderboard">
+  <h2>🏆 Leaderboard</h2>
+  <div className="leaderboard-list">
+    {teams.map((team, index) => (
+      <div 
+        key={index} 
+        className="leaderboard-item"
+        onClick={() => {
+          const element = document.getElementById(`team-${index}`);
+          element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }}
+      >
+        <span className="rank">#{index + 1}</span>
+        <span className="team-name-leader">{team.name}</span>
+        <span className="score">{team.grandTotal} pts</span>
       </div>
-      
+    ))}
+  </div>
+</div>
       {/* Team Cards */}
       <div className="teams-grid">
         {teams.map((team, index) => (
-          <div key={index} className="team-card">
+         <div key={index} id={`team-${index}`} className="team-card">
             <div className="team-header">
               <span className="team-rank">#{index + 1}</span>
               <h2>{team.name}</h2>
