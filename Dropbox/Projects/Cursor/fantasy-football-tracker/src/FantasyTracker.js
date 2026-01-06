@@ -14,8 +14,12 @@ function FantasyTracker() {
       header: false,
       complete: (results) => {
         const parsedTeams = parseTeams(results.data);
-        console.log('Parsed Teams:', parsedTeams);
-        setTeams(parsedTeams);
+        // Sort teams by grand total (highest first)
+        const sortedTeams = parsedTeams.sort((a, b) => 
+          parseInt(b.grandTotal) - parseInt(a.grandTotal)
+        );
+        console.log('Parsed Teams:', sortedTeams);
+        setTeams(sortedTeams);
         setLoading(false);
       }
     });
@@ -26,7 +30,6 @@ function FantasyTracker() {
     let i = 0;
     
     while (i < data.length) {
-      // Look for team name (like "Bob", "Joe", etc - not position codes)
       if (i >= 5 && data[i][0] && data[i][0].trim() !== '' && 
           !['QB', 'RB', 'WR', 'DEF', 'K'].includes(data[i][0].trim()) &&
           !data[i][0].includes('Week Total') && 
@@ -34,15 +37,14 @@ function FantasyTracker() {
         
         const teamName = data[i][0].trim();
         console.log('Found team:', teamName, 'at row', i);
-        i++; // Skip to week headers row
+        i++;
         
         if (i >= data.length) break;
-        i++; // Skip to first player row
+        i++;
         
         const players = [];
         const reserves = [];
         
-        // Read all players
         while (i < data.length && data[i][0] && 
                ['QB', 'RB', 'WR', 'DEF', 'K'].includes(data[i][0].trim())) {
           
@@ -56,7 +58,6 @@ function FantasyTracker() {
           };
           players.push(player);
           
-          // Check for reserve player
           if (data[i][6] && data[i][7]) {
             const reserve = {
               position: data[i][6].trim(),
@@ -72,16 +73,13 @@ function FantasyTracker() {
           i++;
         }
         
-        // Skip empty row
         if (i < data.length && (!data[i][0] || data[i][0].trim() === '')) i++;
         
         let weekTotals = { week1: '0', week2: '0', week3: '0', week4: '0' };
         let grandTotal = '0';
         let reserveTiebreakerTotal = '0';
         
-        // Week totals row
         if (i < data.length && data[i][0] && data[i][0].trim().includes('Week Total')) {
-          console.log('Week Total row:', data[i]);
           weekTotals = {
             week1: data[i][2] || '0',
             week2: data[i][3] || '0',
@@ -96,14 +94,10 @@ function FantasyTracker() {
           i++;
         }
         
-        // Skip empty row
         if (i < data.length && (!data[i][0] || data[i][0].trim() === '')) i++;
         
-        // Grand total row
         if (i < data.length && data[i][0] && data[i][0].trim().includes('Grand Total')) {
-          console.log('Grand Total row:', data[i]);
           grandTotal = data[i][1] || '0';
-          console.log('Setting grand total to:', grandTotal);
           i++;
         }
         
@@ -116,7 +110,6 @@ function FantasyTracker() {
           reserveTiebreakerTotal: reserveTiebreakerTotal
         });
         
-        // Skip empty rows until next team
         while (i < data.length && (!data[i][0] || data[i][0].trim() === '')) {
           i++;
         }
@@ -136,10 +129,28 @@ function FantasyTracker() {
     <div className="tracker-container">
       <h1>Fantasy Football Playoffs 2026</h1>
       
+      {/* Leaderboard */}
+      <div className="leaderboard">
+        <h2>🏆 Standings</h2>
+        <div className="leaderboard-list">
+          {teams.map((team, index) => (
+            <div key={index} className="leaderboard-item">
+              <span className="rank">#{index + 1}</span>
+              <span className="team-name-leader">{team.name}</span>
+              <span className="score">{team.grandTotal} pts</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Team Cards */}
       <div className="teams-grid">
         {teams.map((team, index) => (
           <div key={index} className="team-card">
-            <h2>{team.name}</h2>
+            <div className="team-header">
+              <span className="team-rank">#{index + 1}</span>
+              <h2>{team.name}</h2>
+            </div>
             
             <table className="roster-table">
               <thead>
@@ -197,7 +208,7 @@ function FantasyTracker() {
                     {team.reserves.map((reserve, rIndex) => (
                       <tr key={rIndex}>
                         <td>{reserve.position}</td>
-                        <td className="player-name">{reserve.name}</td>
+                        <td className="reserve-player-name">{reserve.name}</td>
                         <td>{reserve.week1}</td>
                         <td>{reserve.week2}</td>
                         <td>{reserve.week3}</td>

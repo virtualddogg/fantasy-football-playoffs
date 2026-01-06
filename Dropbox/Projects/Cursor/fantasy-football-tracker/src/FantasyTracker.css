@@ -18,7 +18,59 @@
     font-size: 20px;
     color: #7f8c8d;
   }
+  .leaderboard {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
   
+  .leaderboard h2 {
+    color: white;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+  }
+  
+  .leaderboard-list {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .leaderboard-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .leaderboard-item:hover {
+    transform: translateX(5px);
+  }
+  
+  .leaderboard-item .rank {
+    font-size: 20px;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 40px;
+  }
+  
+  .leaderboard-item .team-name-leader {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .leaderboard-item .score {
+    font-size: 20px;
+    font-weight: 700;
+    color: #764ba2;
+  }
   .teams-grid {
     display: grid;
     gap: 30px;
