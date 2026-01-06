@@ -92,42 +92,50 @@
   }
   
   .reserves-section {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px dashed #dee2e6;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #dee2e6;
   }
   
   .reserves-section h3 {
-    font-size: 16px;
-    color: #6c757d;
-    margin-bottom: 15px;
+    font-size: 13px;
+    color: #868e96;
+    margin-bottom: 10px;
     text-align: center;
+    font-weight: 500;
   }
   
   .reserves-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 11px;
   }
   
   .reserves-table th {
-    background-color: #f1f3f5;
-    padding: 8px;
+    background-color: #f8f9fa;
+    padding: 5px;
     text-align: center;
-    font-weight: 600;
-    color: #495057;
-    border-bottom: 1px solid #dee2e6;
+    font-weight: 500;
+    color: #6c757d;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 10px;
   }
   
   .reserves-table td {
-    padding: 8px;
+    padding: 5px;
     text-align: center;
-    border-bottom: 1px solid #f1f3f5;
+    border-bottom: 1px solid #f8f9fa;
+    color: #6c757d;
   }
   
   .reserves-table .player-name {
     text-align: left !important;
-    padding-left: 10px;
+    padding-left: 8px;
+    font-size: 11px;
+  }
+  
+  .reserves-table thead th {
+    text-align: center !important;
   }
   
   .reserves-table tbody tr:hover {
