@@ -1,0 +1,159 @@
+.tracker-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  .tracker-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+    color: #7f8c8d;
+  }
+  
+  .teams-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .team-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+  }
+  
+  .team-card h2 {
+    text-align: center;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+  }
+  
+  .roster-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .roster-table th {
+    background-color: #f8f9fa;
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .roster-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .roster-table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .position {
+    font-weight: 600;
+    color: #3498db;
+  }
+  
+  .player-name {
+    text-align: left !important;
+    font-weight: 500;
+  }
+  
+  .totals-row td {
+    background-color: #e3f2fd;
+    font-weight: 600;
+    padding-top: 12px;
+  }
+  
+  .grand-total-row td {
+    background-color: #bbdefb;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1976d2;
+  }
+  
+  .reserves-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #dee2e6;
+  }
+  
+  .reserves-section h3 {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .reserves-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  
+  .reserves-table th {
+    background-color: #f1f3f5;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .reserves-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #f1f3f5;
+  }
+  
+  .reserves-table .player-name {
+    text-align: left !important;
+    padding-left: 10px;
+  }
+  
+  .reserves-table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .tracker-container {
+      padding: 10px;
+    }
+    
+    .tracker-container h1 {
+      font-size: 24px;
+    }
+    
+    .teams-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .roster-table {
+      font-size: 12px;
+    }
+    
+    .roster-table th,
+    .roster-table td {
+      padding: 6px 4px;
+    }
+  }
